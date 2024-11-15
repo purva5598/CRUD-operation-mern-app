@@ -6,6 +6,7 @@ const Update =()=>{
     const [name,setName]=useState("");
     const [email,setEmail]=useState("");
     const [age,setAge]=useState(0);
+    const [post,setPost]=useState("");
 
     const [error,setError]=useState("");
     const {id}=useParams();
@@ -31,7 +32,7 @@ const Update =()=>{
         setName(result.name);
         setEmail(result.email);
         setAge(result.age);
-
+        setPost(result.post);
         
 
     }
@@ -40,7 +41,7 @@ const Update =()=>{
     const handleUpdate=async(e)=>{
         e.preventDefault();
         
-        const updateUser = { name, email, age };
+        const updateUser = { name, email, age, post };
     
         try {
             const response = await fetch(`http://localhost:5000/${id}`, {
@@ -89,6 +90,10 @@ const Update =()=>{
   <div className="mb-3">
     <label  className="form-label">age</label>
     <input type="number" className="form-control" value={age} onChange={(e)=>setAge(e.target.value)}/>
+  </div>
+  <div className="mb-3">
+    <label className="form-label">Post</label>
+    <input type="post" className="form-control"value={post} onChange={(e)=>setPost(e.target.value)} />
   </div>
  
   <button type="submit" className="btn btn-primary">Update</button>

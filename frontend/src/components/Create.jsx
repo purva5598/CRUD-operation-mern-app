@@ -6,18 +6,19 @@ const Create=()=>{
     const [name,setName]=useState("");
     const [email,setEmail]=useState("");
     const [age,setAge]=useState(0);
+    const [post,setPost]=useState("");
 
     const [error,setError]=useState("");
 
 
     const navigate=useNavigate();
 
-    console.log(name,email,age);
+    console.log(name,email,age,post);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        const addUser = { name, email, age };
+        const addUser = { name, email, age, post };
     
         try {
             const response = await fetch("http://localhost:5000", {
@@ -39,6 +40,7 @@ const Create=()=>{
              setName("");
             setEmail("");
             setAge(0);
+            setPost("");
             setError("");
             navigate("/all");}
         } catch (error) {
@@ -51,7 +53,7 @@ const Create=()=>{
     return (
         <div className='container my-2'>
             {error && <div class="alert alert-danger">{error}</div>}
-            <h2 className='tect-center'>enter data</h2>
+            <h2 className='tect-center'>Enter data</h2>
             
             <form onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -63,8 +65,12 @@ const Create=()=>{
     <input type="email" className="form-control"value={email} onChange={(e)=>setEmail(e.target.value)} />
   </div>
   <div className="mb-3">
-    <label  className="form-label">age</label>
+    <label  className="form-label">Age</label>
     <input type="number" className="form-control" value={age} onChange={(e)=>setAge(e.target.value)}/>
+  </div>
+  <div className="mb-3">
+    <label className="form-label">Write you post</label>
+    <input type="post" className="form-control"value={post} onChange={(e)=>setPost(e.target.value)} />
   </div>
  
   <button type="submit" className="btn btn-primary">Submit</button>

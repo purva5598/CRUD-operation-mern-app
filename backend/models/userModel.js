@@ -14,6 +14,10 @@ const userSchema =new mongoose.Schema({
         type:Number,
 
     },
+    post:{
+        type:String,
+        require:true
+    }
 
 },{timestamps:true});
 

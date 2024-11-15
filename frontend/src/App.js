@@ -8,7 +8,7 @@ import Update from "./components/Update";
 function App() {
   return (
     <div className="App">
-      <h1>hihih</h1>
+      <h1>Post It !</h1>
       <BrowserRouter>
       <Navbar />
       <Routes>

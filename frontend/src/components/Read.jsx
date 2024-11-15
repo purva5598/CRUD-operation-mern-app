@@ -61,6 +61,7 @@ console.log(data);
                         <h5 className="card-title">{ele.name}</h5>
                         <h6 className="card-subtitle mb-2 text-muted">{ele.email}</h6>
                         <p className="text-muted">{ele.age}</p>
+                        <h6>{ele.post}</h6>
                         <a href="#" className="card-link" onClick={()=>handleDelete(ele._id)}>Delete</a>
                         <Link to={`/${ele._id}`} className="card-link">Edit{""}</Link>
                     </div>

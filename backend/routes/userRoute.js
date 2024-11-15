@@ -6,12 +6,13 @@ const router = express.Router();
 
 // Create user
 router.post("/", async (req, res) => {
-    const { name, email, age } = req.body;
+    const { name, email, age, post } = req.body;
     try {
         const userAdded = await User.create({
             name: name,
             email: email,
             age: age,
+            post: post,
         });
         res.status(201).json(userAdded);
     } catch (error) {
@@ -58,7 +59,7 @@ router.delete("/:id", async (req, res) => {
 // Update user
 router.patch("/:id", async (req, res) => {
     const { id } = req.params;
-    const { name, email, age } = req.body;
+    const { name, email, age, post } = req.body;
     try {
         const updateUser = await User.findByIdAndUpdate(id, req.body, { new: true });
         res.status(200).json(updateUser);
